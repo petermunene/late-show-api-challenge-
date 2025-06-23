@@ -57,11 +57,9 @@ POST	/appearances	✅	Create appearance
 📬 Postman
 Import challenge-4-lateshow.postman_collection.json
 
-After login, Scripts → Tests:
+After login, Scripts → Tests or post-response:
 
-js
-Copy
-Edit
+Copy and paste to save token after login
 let data = pm.response.json();
 pm.collectionVariables.set("token", data.access_token);
 
