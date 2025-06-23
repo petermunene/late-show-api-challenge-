@@ -1,7 +1,7 @@
 from flask import request,Blueprint,jsonify
 from flask_jwt_extended import create_access_token
-from app import db
-from models.user import User
+from server import db
+from server.models.user import User
 
 auth_bp=Blueprint('auth',__name__)
 
@@ -13,11 +13,14 @@ def register ():
     
     user = User.query.filter(User.username==username).first()
     if user:
-        return jsonify({"username already exists"}),400
+        return jsonify({"error":"username already exists"}),400
     user=User(username=username)
     user.set_password_hash(password)
     db.session.add(user)
     db.session.commit()
+    return jsonify({
+        'username':user.username
+    })
 
 @auth_bp.route('/login',methods=['POST'])
 def login ():

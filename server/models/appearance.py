@@ -1,4 +1,4 @@
-from app import db 
+from server import db
 from sqlalchemy.orm import validates
 class Appearance (db.Model):
     __tablename__='appearances'
