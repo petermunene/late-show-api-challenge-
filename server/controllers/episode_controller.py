@@ -29,7 +29,7 @@ def get_episode_by_id(id):
             'episode_id':a.episode_id
         }for a in appearances ]
     }
-    return jsonify(data)
+    return jsonify(data),200
 
 @episode_bp.route('/episodes/<int:id>',methods=['DELETE'])
 @jwt_required()
