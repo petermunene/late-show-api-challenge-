@@ -20,7 +20,7 @@ def register ():
     db.session.commit()
     return jsonify({
         'username':user.username
-    })
+    }),201
 
 @auth_bp.route('/login',methods=['POST'])
 def login ():
